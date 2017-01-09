@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "AWS CloudFormation Sample Template S3_Website_With_CloudFront_Distribution: Sample template showing how to create a website with a custom DNS name, hosted on Amazon S3 and served via Amazone CloudFront. It assumes you already have a Hosted Zone registered with Amazon Route 53. **WARNING** This template creates an Amazon Route 53 DNS record, an S3 bucket and a CloudFront distribution. You will be billed for the AWS resources used if you create a stack from this template.",
+  "Description": "Template for creating the static parts of the home pets website",
   "Parameters": {
     "HostedZone": {
       "Type": "String",
@@ -66,11 +66,6 @@
         "WebsiteConfiguration": {
           "IndexDocument": "index.html",
           "ErrorDocument": "error.html"
-        }
-      },
-      "Metadata": {
-        "AWS::CloudFormation::Designer": {
-          "id": "cfb0df3a-47be-41a2-9d8a-7d9de2d096a3"
         }
       }
     },
@@ -140,11 +135,6 @@
               "Id": "only-origin"
             }
           ]
-        }
-      },
-      "Metadata": {
-        "AWS::CloudFormation::Designer": {
-          "id": "0973ee80-ae75-439a-a667-f4b7d6ae51eb"
         }
       }
     },
@@ -230,52 +220,6 @@
         "Ref": "S3BucketForWebsiteContent"
       },
       "Description": "Name of S3 bucket to hold website content"
-    }
-  },
-  "Metadata": {
-    "AWS::CloudFormation::Designer": {
-      "cfb0df3a-47be-41a2-9d8a-7d9de2d096a3": {
-        "size": {
-          "width": 60,
-          "height": 60
-        },
-        "position": {
-          "x": 60,
-          "y": 90
-        },
-        "z": 1,
-        "embeds": []
-      },
-      "0973ee80-ae75-439a-a667-f4b7d6ae51eb": {
-        "size": {
-          "width": 60,
-          "height": 60
-        },
-        "position": {
-          "x": 180,
-          "y": 90
-        },
-        "z": 1,
-        "embeds": [],
-        "isrelatedto": [
-          "cfb0df3a-47be-41a2-9d8a-7d9de2d096a3"
-        ]
-      },
-      "bf0ec4b0-7c72-4eaa-b6c2-d303c0684dc7": {
-        "size": {
-          "width": 60,
-          "height": 60
-        },
-        "position": {
-          "x": 60,
-          "y": 210
-        },
-        "z": 1,
-        "embeds": [],
-        "isrelatedto": [
-          "0973ee80-ae75-439a-a667-f4b7d6ae51eb"
-        ]
-      }
     }
   }
 }
