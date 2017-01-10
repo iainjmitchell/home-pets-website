@@ -1,225 +1,96 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "Template for creating the static parts of the home pets website",
-  "Parameters": {
-    "HostedZone": {
-      "Type": "String",
-      "Description": "The DNS name of an existing Amazon Route 53 hosted zone",
-      "AllowedPattern": "(?!-)[a-zA-Z0-9-.]{1,63}(?<!-)",
-      "ConstraintDescription": "must be a valid DNS zone name."
-    }
-  },
-  "Mappings": {
-    "Region2S3WebsiteSuffix": {
-      "us-east-1": {
-        "Suffix": ".s3-website-us-east-1.amazonaws.com"
-      },
-      "us-west-1": {
-        "Suffix": ".s3-website-us-west-1.amazonaws.com"
-      },
-      "us-west-2": {
-        "Suffix": ".s3-website-us-west-2.amazonaws.com"
-      },
-      "eu-west-1": {
-        "Suffix": ".s3-website-eu-west-1.amazonaws.com"
-      },
-      "eu-west-2": {
-        "Suffix": ".s3-website-eu-west-2.amazonaws.com"
-      },
-      "ap-northeast-1": {
-        "Suffix": ".s3-website-ap-northeast-1.amazonaws.com"
-      },
-      "ap-northeast-2": {
-        "Suffix": ".s3-website-ap-northeast-2.amazonaws.com"
-      },
-      "ap-southeast-1": {
-        "Suffix": ".s3-website-ap-southeast-1.amazonaws.com"
-      },
-      "ap-southeast-2": {
-        "Suffix": ".s3-website-ap-southeast-2.amazonaws.com"
-      },
-      "ap-south-1": {
-        "Suffix": ".s3-website-ap-south-1.amazonaws.com"
-      },
-      "us-east-2": {
-        "Suffix": ".s3-website-us-east-2.amazonaws.com"
-      },
-      "ca-central-1": {
-        "Suffix": ".s3-website-ca-central-1.amazonaws.com"
-      },
-      "sa-east-1": {
-        "Suffix": ".s3-website-sa-east-1.amazonaws.com"
-      },
-      "cn-north-1": {
-        "Suffix": ".s3-website.cn-north-1.amazonaws.com.cn"
-      },
-      "eu-central-1": {
-        "Suffix": ".s3-website-eu-central-1.amazonaws.com"
-      }
-    }
-  },
   "Resources": {
-    "S3BucketForWebsiteContent": {
+    "dnshomepetsukcom": {
+      "Type": "AWS::Route53::RecordSetGroup",
+      "Properties": {
+        "HostedZoneName": "homepetsuk.com.",
+        "RecordSets": [
+          {
+            "Name": "homepetsuk.com.",
+            "Type": "A",
+            "AliasTarget": {
+              "HostedZoneId": "Z3GKZC51ZF0DB4",
+              "DNSName": "s3-website.eu-west-2.amazonaws.com"
+            }
+          }
+        ]
+      }
+    },
+    "dnswwwhomepetsukcom": {
+      "Type": "AWS::Route53::RecordSetGroup",
+      "Properties": {
+        "HostedZoneName": "homepetsuk.com.",
+        "RecordSets": [
+          {
+            "Name": "www.homepetsuk.com.",
+            "Type": "A",
+            "AliasTarget": {
+              "HostedZoneId": "Z3GKZC51ZF0DB4",
+              "DNSName": "s3-website.eu-west-2.amazonaws.com"
+            }
+          }
+        ]
+      }
+    },
+    "s3homepetsukcom": {  
       "Type": "AWS::S3::Bucket",
       "Properties": {
-        "AccessControl": "PublicRead",
+        "BucketName": "homepetsuk.com",
         "WebsiteConfiguration": {
           "IndexDocument": "index.html",
           "ErrorDocument": "error.html"
+        },
+        "AccessControl": "Private",
+        "VersioningConfiguration": {
+          "Status": "Suspended"
         }
       }
     },
-    "WebsiteCDN": {
-      "Type": "AWS::CloudFront::Distribution",
+    "s3wwwhomepetsukcom": { 
+      "Type": "AWS::S3::Bucket",
       "Properties": {
-        "DistributionConfig": {
-          "Comment": "CDN for S3-backed website",
-          "Aliases": [
+        "BucketName": "www.homepetsuk.com",
+        "AccessControl": "Private",
+        "VersioningConfiguration": {
+          "Status": "Suspended"
+        },
+        "WebsiteConfiguration": {
+          "RedirectAllRequestsTo": {
+            "HostName": "homepetsuk.com"
+          }
+        }
+      }
+    },
+    "s3policyhomepetsukcom": {
+      "Type": "AWS::S3::BucketPolicy",
+      "Properties": {
+        "Bucket": {
+          "Ref": "s3homepetsukcom"
+        },
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
             {
-              "Fn::Join": [
-                "",
-                [
-                  {
-                    "Ref": "AWS::StackName"
-                  },
-                  {
-                    "Ref": "AWS::AccountId"
-                  },
-                  ".",
-                  {
-                    "Ref": "AWS::Region"
-                  },
-                  ".",
-                  {
-                    "Ref": "HostedZone"
-                  }
-                ]
-              ]
-            }
-          ],
-          "Enabled": "true",
-          "DefaultCacheBehavior": {
-            "ForwardedValues": {
-              "QueryString": "true"
-            },
-            "TargetOriginId": "only-origin",
-            "ViewerProtocolPolicy": "allow-all"
-          },
-          "DefaultRootObject": "index.html",
-          "Origins": [
-            {
-              "CustomOriginConfig": {
-                "HTTPPort": "80",
-                "HTTPSPort": "443",
-                "OriginProtocolPolicy": "http-only"
-              },
-              "DomainName": {
+              "Sid": "AddPerm",
+              "Effect": "Allow",
+              "Principal": "*",
+              "Action": "s3:GetObject",
+              "Resource": {
                 "Fn::Join": [
                   "",
                   [
-                    {
-                      "Ref": "S3BucketForWebsiteContent"
-                    },
-                    {
-                      "Fn::FindInMap": [
-                        "Region2S3WebsiteSuffix",
-                        {
-                          "Ref": "AWS::Region"
-                        },
-                        "Suffix"
-                      ]
-                    }
+                    "arn:aws:s3:::",
+                    "homepetsuk",
+                    ".com/*"
                   ]
                 ]
-              },
-              "Id": "only-origin"
+              }
             }
           ]
-        }
-      }
-    },
-    "WebsiteDNSName": {
-      "Type": "AWS::Route53::RecordSet",
-      "Properties": {
-        "HostedZoneName": {
-          "Fn::Join": [
-            "",
-            [
-              {
-                "Ref": "HostedZone"
-              },
-              "."
-            ]
-          ]
-        },
-        "Comment": "CNAME redirect custom name to CloudFront distribution",
-        "Name": {
-          "Fn::Join": [
-            "",
-            [
-              {
-                "Ref": "AWS::StackName"
-              },
-              {
-                "Ref": "AWS::AccountId"
-              },
-              ".",
-              {
-                "Ref": "AWS::Region"
-              },
-              ".",
-              {
-                "Ref": "HostedZone"
-              }
-            ]
-          ]
-        },
-        "Type": "CNAME",
-        "TTL": "900",
-        "ResourceRecords": [
-          {
-            "Fn::Join": [
-              "",
-              [
-                "http://",
-                {
-                  "Fn::GetAtt": [
-                    "WebsiteCDN",
-                    "DomainName"
-                  ]
-                }
-              ]
-            ]
-          }
-        ]
-      },
-      "Metadata": {
-        "AWS::CloudFormation::Designer": {
-          "id": "bf0ec4b0-7c72-4eaa-b6c2-d303c0684dc7"
         }
       }
     }
   },
-  "Outputs": {
-    "WebsiteURL": {
-      "Value": {
-        "Fn::Join": [
-          "",
-          [
-            "http://",
-            {
-              "Ref": "WebsiteDNSName"
-            }
-          ]
-        ]
-      },
-      "Description": "The URL of the newly created website"
-    },
-    "BucketName": {
-      "Value": {
-        "Ref": "S3BucketForWebsiteContent"
-      },
-      "Description": "Name of S3 bucket to hold website content"
-    }
-  }
+  "Description": "homepetsuk.com"
 }
