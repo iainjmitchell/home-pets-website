@@ -1,0 +1,20 @@
+{
+  "name": "home-pets-website",
+  "version": "1.0.0",
+  "description": "Static website for homepets",
+  "main": "gulpfile.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iainjmitchell/home-pets-website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iainjmitchell/home-pets-website/issues"
+  },
+  "homepage": "https://github.com/iainjmitchell/home-pets-website#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-awspublish": "^3.3.0"
+  }
+}

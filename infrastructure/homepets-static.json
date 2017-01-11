@@ -90,7 +90,28 @@
           ]
         }
       }
-    }
+    },
+    "homepetsukdeploy" : {
+      "Type" : "AWS::IAM::User",
+        "Properties" : {
+          "Policies" : [ {
+             "PolicyName" : "accessToDeployWebsite",
+             "PolicyDocument" : {
+                "Version": "2012-10-17",
+                "Statement" : [ {
+                   "Effect" : "Allow",
+                   "Action" : ["s3:PutObject","s3:PutObjectAcl", "s3:DeleteObject"],
+                   "Resource" : [ "arn:aws:s3:::homepetsuk.com/*"]
+                },
+                {
+                   "Effect" : "Allow",
+                   "Action" : ["s3:ListBucket"],
+                   "Resource" : [ "arn:aws:s3:::homepetsuk.com"]
+                }]
+              }
+          }]
+       }
+    } 
   },
   "Description": "homepetsuk.com"
 }
