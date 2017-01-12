@@ -3,6 +3,7 @@ const s3_user = require('./aws_security.json')
 const awspublish = require('gulp-awspublish')
 const sass = require('gulp-sass')
 const w3cjs = require('gulp-w3cjs')
+const mustache = require("gulp-mustache");
 
 gulp.task('deploy', ['sass', 'w3c-validation'], ()=> {
   const publisher = awspublish.create({
@@ -28,8 +29,16 @@ gulp.task('sass', () => {
     .pipe(gulp.dest('./public/css'))
 })
  
-gulp.task('w3c-validation', () =>  {
-    gulp.src('public/*.html')
+gulp.task('w3c-validation', ['build-pages'], () =>  {
+  return gulp.src('public/*.html')
         .pipe(w3cjs())
         .pipe(w3cjs.reporter());
 })
+
+gulp.task('build-pages', () => {
+  return gulp.src("./page-templates/*.html")
+      .pipe(mustache({}))
+      .pipe(gulp.dest("./public"))
+})
+
+gulp.task('default', ['deploy'])
