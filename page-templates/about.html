@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+  {{> ./partials/metadata.html }}
+  <title>{{about.title}}</title>
+  <meta name="description" content="{{about.description}}"/>
+  <link rel="canonical" href="{{& rootUrl}}about"/>
+  <!-- <social> --> 
+  <meta property="og:locale" content="en_UK" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="{{about.socialTitle}}" />
+  <meta property="og:description" content="{{about.description}}" />
+  <meta property="og:url" content="{{& rootUrl}}about" />
+  <meta property="og:site_name" content="{{siteName}}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:description" content="{{about.description}}" />
+  <meta name="twitter:title" content="{{about.socialTitle}}" />
+  <meta name="twitter:site" content="@{{twitterAccount}}" />
+  <meta name="twitter:creator" content="@{{twitterAccount}}" />
+  <!-- </social> --> 
+  <link rel="stylesheet" type="text/css" href="css/about.css">
+</head>
+<body>
+  <div class="site">
+    {{> ./partials/header.html }}
+    <h1>About</h1>
+  </div>
+  {{> ./partials/google-analytics.html }}
+</body>

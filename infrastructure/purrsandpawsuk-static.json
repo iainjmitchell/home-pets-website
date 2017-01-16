@@ -1,13 +1,13 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Resources": {
-    "dnshomepetsukcom": {
+    "dnspurrsandpawsukcom": {
       "Type": "AWS::Route53::RecordSetGroup",
       "Properties": {
-        "HostedZoneName": "homepetsuk.com.",
+        "HostedZoneName": "purrsandpawsuk.com.",
         "RecordSets": [
           {
-            "Name": "homepetsuk.com.",
+            "Name": "purrsandpawsuk.com.",
             "Type": "A",
             "AliasTarget": {
               "HostedZoneId": "Z3GKZC51ZF0DB4",
@@ -17,13 +17,13 @@
         ]
       }
     },
-    "dnswwwhomepetsukcom": {
+    "dnswwwpurrsandpawsukcom": {
       "Type": "AWS::Route53::RecordSetGroup",
       "Properties": {
-        "HostedZoneName": "homepetsuk.com.",
+        "HostedZoneName": "purrsandpawsuk.com.",
         "RecordSets": [
           {
-            "Name": "www.homepetsuk.com.",
+            "Name": "www.purrsandpawsuk.com.",
             "Type": "A",
             "AliasTarget": {
               "HostedZoneId": "Z3GKZC51ZF0DB4",
@@ -33,13 +33,27 @@
         ]
       }
     },
-    "s3homepetsukcom": {  
+    "dnsemail": {
+      "Type": "AWS::Route53::RecordSetGroup",
+      "Properties": {
+        "HostedZoneName": "purrsandpawsuk.com.",
+        "RecordSets": [
+          {
+            "Name": "purrsandpawsuk.com.",
+            "Type": "MX",
+            "TTL" : "300",
+            "ResourceRecords" : ["10 mx.zoho.com.", "20 mx2.zoho.com.", "50 mx3.zoho.com."]
+          }
+        ]
+      }
+    },
+    "s3purrsandpawsukcom": {  
       "Type": "AWS::S3::Bucket",
       "Properties": {
-        "BucketName": "homepetsuk.com",
+        "BucketName": "purrsandpawsuk.com",
         "WebsiteConfiguration": {
-          "IndexDocument": "index.html",
-          "ErrorDocument": "error.html"
+          "IndexDocument": "index",
+          "ErrorDocument": "error"
         },
         "AccessControl": "Private",
         "VersioningConfiguration": {
@@ -47,26 +61,26 @@
         }
       }
     },
-    "s3wwwhomepetsukcom": { 
+    "s3wwwpurrsandpawsukcom": { 
       "Type": "AWS::S3::Bucket",
       "Properties": {
-        "BucketName": "www.homepetsuk.com",
+        "BucketName": "www.purrsandpawsuk.com",
         "AccessControl": "Private",
         "VersioningConfiguration": {
           "Status": "Suspended"
         },
         "WebsiteConfiguration": {
           "RedirectAllRequestsTo": {
-            "HostName": "homepetsuk.com"
+            "HostName": "purrsandpawsuk.com"
           }
         }
       }
     },
-    "s3policyhomepetsukcom": {
+    "s3policypurrsandpawsukcom": {
       "Type": "AWS::S3::BucketPolicy",
       "Properties": {
         "Bucket": {
-          "Ref": "s3homepetsukcom"
+          "Ref": "s3purrsandpawsukcom"
         },
         "PolicyDocument": {
           "Version": "2012-10-17",
@@ -81,7 +95,7 @@
                   "",
                   [
                     "arn:aws:s3:::",
-                    "homepetsuk",
+                    "purrsandpawsuk",
                     ".com/*"
                   ]
                 ]
@@ -91,7 +105,7 @@
         }
       }
     },
-    "homepetsukdeploy" : {
+    "purrsandpawsukdeploy" : {
       "Type" : "AWS::IAM::User",
         "Properties" : {
           "Policies" : [ {
@@ -101,17 +115,17 @@
                 "Statement" : [ {
                    "Effect" : "Allow",
                    "Action" : ["s3:PutObject","s3:PutObjectAcl", "s3:DeleteObject"],
-                   "Resource" : [ "arn:aws:s3:::homepetsuk.com/*"]
+                   "Resource" : [ "arn:aws:s3:::purrsandpawsuk.com/*"]
                 },
                 {
                    "Effect" : "Allow",
                    "Action" : ["s3:ListBucket"],
-                   "Resource" : [ "arn:aws:s3:::homepetsuk.com"]
+                   "Resource" : [ "arn:aws:s3:::purrsandpawsuk.com"]
                 }]
               }
           }]
        }
     } 
   },
-  "Description": "homepetsuk.com"
+  "Description": "purrsandpawsuk.com"
 }

@@ -1,0 +1,26 @@
+{
+  "rootUrl": "http://purrsandpawsuk.com/",
+  "siteName": "Purrs and Paws",
+  "twitterAccount" : "purrsandpawsuk",
+  "emailAddress" : "contact@purrsandpawsuk.com",
+  "index" : {
+    "title" : "Purrs & Paws",
+    "description" : "Pet sitting services in ​Sale, Timperley, Altrincham, Hale Barns & surrounding areas.",
+    "socialTitle" : "Pet sitting | Sale | Timperley | Altrincham"
+  },
+  "about" : {
+    "title" : "About - Purrs & Paws",
+    "description" : "About Purrs and Paws, pet sitting services in ​Sale, Timperley, Altrincham, Hale Barns & surrounding areas.",
+    "socialTitle" : "About Purrs and Paws"
+  },
+  "services" : {
+    "title" : "Services - Purrs & Paws",
+    "description" : "Services & Prices of Purrs and Paws, pet sitting services in ​Sale, Timperley, Altrincham, Hale Barns & surrounding areas.",
+    "socialTitle" : "Services & Prices of Purrs and Paws"
+  },
+  "contact" : {
+    "title" : "Contact - Purrs & Paws",
+    "description" : "Contact Prices of Purrs and Paws, pet sitting services in ​Sale, Timperley, Altrincham, Hale Barns & surrounding areas.",
+    "socialTitle" : "Contact Purrs and Paws"
+  }
+}

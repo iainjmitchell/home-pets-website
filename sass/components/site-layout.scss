@@ -1,10 +1,18 @@
 @import '../node_modules/gel-sass-tools/sass-tools';
 @import '../node_modules/sass-mq/mq';
 @import '../node_modules/gel-grid/grid';
+@import './header';
 
 body {
   color: #3b3c40;
   font-size: 14px;
   font-family: 'Open Sans',Arial,sans-serif;
-  line-height: 1.5px;
+}
+
+.site {
+  @include gel-wrap;
+
+  .content {
+    @include gel-layout;
+  }
 }
