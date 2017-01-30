@@ -1,17 +1,83 @@
 $communication-text-color: #FFF;
+$communication-hover-text-color: #C5B358;
 
 .communication {
   background-color: #000000;   
   padding: 5px 0px;
 
-  .communication__email {
-    p {
-      letter-spacing: 0;
-      margin: 0;
-    }
+  .communication__email {  
+    padding-top: 2px;
     a {
       color: $communication-text-color; 
       text-decoration: none;
+      letter-spacing: 0;
+      padding-top: 3px;
+
+      i {
+        letter-spacing: 0;
+        margin: 0;
+        margin-right: 5px;
+        font-size: 1.2em;
+        color: $communication-text-color;
+      }
+    }
+
+    &:hover{
+      a {
+        color: $communication-hover-text-color;
+      }
+      i {
+        color: $communication-hover-text-color;
+      }
+    }
+  }
+
+  .communication__social {
+    text-align: right;
+
+    .communication__social__items {
+      list-style: none;
+      margin: 0;
+
+      .communication__social__item {
+        display: inline;
+
+        .fa {
+          font-size: 1.5em;
+          letter-spacing: 0;
+          margin-right: 7px;
+        }
+
+        .fa-twitter-square {
+          color: #0084b4;
+        }
+
+        .fa-instagram {
+          color: $communication-text-color;
+        }
+
+        .fa-facebook-official {
+          color: #3b5998;
+          // background-color: $communication-text-color;
+        }
+
+        &:hover {
+          .fa-twitter-square, .fa-facebook-official, .fa-instagram {
+            color: $communication-hover-text-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+//small devce tweeks
+@media(max-width: 500px){
+  .communication {
+    .communication__email {
+      span {
+        display: none;
+      }
     }
   }
 }
