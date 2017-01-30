@@ -40,9 +40,14 @@ gulp.task('createHtmlWithoutExt', ['w3c-validation'],  () => {
     .pipe(gulp.dest('./public'))
 })
 
-gulp.task('sass', ['copy-images'], () => {
+gulp.task('sass', ['copy-gel'], () => {
   return gulp.src(['./sass/*.scss'])
     .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+    .pipe(gulp.dest('./public/css'))
+})
+
+gulp.task('copy-gel', ['copy-images'],() => {
+  return gulp.src('./node_modules/gel-grid/gel-grid.css/gel-grid.min.css')
     .pipe(gulp.dest('./public/css'))
 })
  

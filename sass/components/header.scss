@@ -1,47 +1,30 @@
-@import '../node_modules/gel-sass-tools/sass-tools';
-@import '../node_modules/sass-mq/mq';
-@import '../node_modules/gel-grid/grid';
 @import '../font-awesome/font-awesome';
+@import './communication';
 
 $header-text-color: #dfdfdf;
 
 .header {
-
   padding: 10px;
   background-color: #4c5560;
-  // background-image: radial-gradient(circle farthest-corner at 104% -25%, #a7afb9, transparent);
-
-  .header__wrap {
-    @include gel-wrap;
-  }
-
-  .header__layout {
-    @include gel-layout;
-  }
-
-  .header__layout_item {
-    @include gel-layout-item;
-  }
+  background-image: radial-gradient(circle farthest-corner at 104% -25%, #a7afb9, transparent);
 
   .header__logo {
     img {
-      height: 65px;
+      width: 250px; 
     }
   }
 
   .header__navigation {
     .header__navigation__items {    
-        display: inline-block;
-        list-style: none;
-        text-align: center;
-        padding: 10px;
-        margin: 0;
+        padding-top: 14px;
+        padding-left: 10px;
     }  
 
     .header__navigation__item {
-      display: inline;
-      padding: 10px;
+      padding: 10px 0px;
       border-right: solid 1px $header-text-color;
+      width: 180px;
+      display: inline-block;
       a {
         color: $header-text-color; 
         text-decoration: none;
@@ -50,31 +33,37 @@ $header-text-color: #dfdfdf;
         letter-spacing: 1px;
         font-size: 12px;
       }
-    }
-  }
 
-    .header__contact {
-      // @include gel-layout;
-
-      .header__contact__social {
-
+      &:hover {
+        background-color: $header-text-color;
       }
+    }
+
+    .header__navigation__item--first {
+      border-left: solid 1px $header-text-color;
+    }
+  } 
+}
+
+//Medium/small device tweeks
+@media(max-width: 900px){
+  .header {
+    .header__logo {
+      text-align: center;
     }
 
     .header__navigation {
-      
-
-      .header__navigation__items {
-        // display: inline-block;
-        // list-style: none;
-        // text-align: center;
-        // padding: 0;
-        // margin: 0;
-      }  
+      .header__navigation__items {    
+        padding: 0px;
+      }
 
       .header__navigation__item {
-
+        border: solid 1px $header-text-color;
+        padding: 10px 0;
+        width: 280px;
+        display: block;
+        margin: 0 auto;
       }
     }
-  
+  }
 }

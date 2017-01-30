@@ -1,0 +1,17 @@
+$communication-text-color: #FFF;
+
+.communication {
+  background-color: #000000;   
+  padding: 5px 0px;
+
+  .communication__email {
+    p {
+      letter-spacing: 0;
+      margin: 0;
+    }
+    a {
+      color: $communication-text-color; 
+      text-decoration: none;
+    }
+  }
+}
