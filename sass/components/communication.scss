@@ -1,4 +1,4 @@
-$communication-text-color: #FFF;
+$communication-text-color: #dfdfdf;
 $communication-hover-text-color: #C5B358;
 
 .communication {
@@ -11,7 +11,7 @@ $communication-hover-text-color: #C5B358;
       color: $communication-text-color; 
       text-decoration: none;
       letter-spacing: 0;
-      padding-top: 3px;
+      padding-top: 2px;
 
       i {
         letter-spacing: 0;
@@ -71,12 +71,27 @@ $communication-hover-text-color: #C5B358;
   }
 }
 
-//small devce tweeks
-@media(max-width: 500px){
+//medium/small device tweeks
+@media(max-width: 900px){
   .communication {
     .communication__email {
+      padding-top: 0px;
+      .fa {
+        font-size: 3em;
+      }
       span {
         display: none;
+      }
+    }
+
+    .communication__social {
+      .communication__social__items {
+        .communication__social__item {
+          .fa {
+            font-size: 3em;
+            margin-right: 15px;
+          }
+        }
       }
     }
   }

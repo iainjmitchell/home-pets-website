@@ -2,15 +2,29 @@
 @import './communication';
 
 $header-text-color: #dfdfdf;
+$header-background-color: #4c5560;
 
 .header {
   padding: 10px;
-  background-color: #4c5560;
-  background-image: radial-gradient(circle farthest-corner at 104% -25%, #a7afb9, transparent);
+  background-color: $header-background-color;
+  // background-image: radial-gradient(circle farthest-corner at 104% -25%, #a7afb9, transparent);
 
   .header__logo {
+    display: inline-block;
     img {
       width: 250px; 
+    }
+    .header__logo__summary {
+      margin: 0;
+      letter-spacing: 0.2px;
+      font-weight: 200;
+      margin-top: -15px;
+      span {
+        padding: 0px 7px;
+        background-color: $header-background-color;
+        color: $header-text-color;
+      }
+      text-align: center;
     }
   }
 
@@ -48,7 +62,7 @@ $header-text-color: #dfdfdf;
 //Medium/small device tweeks
 @media(max-width: 900px){
   .header {
-    .header__logo {
+    .header__firstItem {
       text-align: center;
     }
 
