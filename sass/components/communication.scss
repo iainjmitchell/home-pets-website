@@ -1,8 +1,9 @@
 $communication-text-color: #dfdfdf;
 $communication-hover-text-color: #C5B358;
+$communication-background-color: #000000;
 
 .communication {
-  background-color: #000000;   
+  background-color: $communication-background-color;   
   padding: 5px 0px;
 
   .communication__email {  
@@ -58,7 +59,6 @@ $communication-hover-text-color: #C5B358;
 
         .fa-facebook-official {
           color: #3b5998;
-          // background-color: $communication-text-color;
         }
 
         &:hover {
