@@ -1,2 +1,23 @@
-@import './components/site-layout.scss'
+@import './components/site-layout';
 
+.index {
+  .index__content {
+
+  }
+
+  .index__sidebar {
+    padding: 20px 40px; 
+  }
+  
+  .index__description {
+    h1 {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  .index__twitter {
+    border: 1px solid #000;
+    padding: 10px;
+  }
+}

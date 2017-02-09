@@ -1,6 +1,3 @@
-@import '../node_modules/gel-sass-tools/sass-tools';
-@import '../node_modules/sass-mq/mq';
-@import '../node_modules/gel-grid/grid';
 @import './header';
 @import './footer';
 @import url(http://allfont.net/allfont.css?fonts=montserrat-light);
@@ -12,8 +9,6 @@ body {
   margin: 0;
 }
 
-.site {
-  .page-content {
-    @include gel-wrap;
-  }
+.site__content {
+  padding-top: 5px;
 }

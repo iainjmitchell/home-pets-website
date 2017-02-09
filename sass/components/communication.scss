@@ -11,11 +11,9 @@ $communication-background-color: #000000;
     a {
       color: $communication-text-color; 
       text-decoration: none;
-      letter-spacing: 0;
       padding-top: 2px;
 
       i {
-        letter-spacing: 0;
         margin: 0;
         margin-right: 5px;
         font-size: 1.2em;
@@ -74,6 +72,7 @@ $communication-background-color: #000000;
 //medium/small device tweeks
 @media(max-width: 900px){
   .communication {
+    display: none;
     .communication__email {
       padding-top: 0px;
       .fa {
@@ -85,6 +84,7 @@ $communication-background-color: #000000;
     }
 
     .communication__social {
+
       .communication__social__items {
         .communication__social__item {
           .fa {
