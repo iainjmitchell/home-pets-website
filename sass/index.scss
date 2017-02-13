@@ -1,33 +1,15 @@
 @import './components/site-layout';
 
 .index {
-  letter-spacing: 0.5px;
-  line-height: 20px;
-  font-size: 1.1em;
-  
-  .index__content {
-    height: 100%;
-    
-  }
-
-  .index__content, .index__sidebar {
-    padding: 120px 10px;
-  }
-
-  .index__description, .index__services {
-    padding: 0 20px 0 20px;
-  }
-
-  .index__sidebar {
-    background-color: #be9c30;
-  }
-
   .index__services {
-    background-color: #be9c30;
-    color: white;
+    padding: 15px 10px;
 
     h2, .index__services__etc {
       text-align: center;
+    }
+
+    .index__services__animals {
+      padding: 20px 0px;
     }
 
     .index__services__animal {
@@ -36,6 +18,10 @@
         border-radius: 50%;
         width: 100%;
       }
+    }
+
+    p {
+      text-align: center;
     }
   }
 
@@ -47,28 +33,3 @@
     }
   }
 }
-
-@media(max-width: 1280px){
-  .index {
-    .index__sidebar {
-      padding: 30px 10px;
-    }
-  }
-}
-
-@media(max-width: 1000px){
-  .index {
-    .index__content {
-      padding: 70px 10px;
-    }
-  }
-}
-
-@media(max-width: 900px){
-  .index {
-    .index__content {
-      padding: 30px 10px;
-    }
-  }
-}
-
