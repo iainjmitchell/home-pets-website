@@ -1,2 +1,14 @@
 @import './components/site-layout.scss';
 
+.contact {
+  iframe {
+    width:100%;
+    height: 1200px;
+  }
+
+  .page__content {
+    padding: 0;
+  }
+} 
+
+
