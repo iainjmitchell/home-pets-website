@@ -34,10 +34,9 @@ $header-background-color: rgb(84, 110, 122);
     }  
 
     .header__navigation__item {
-      border-right: solid 1px $header-text-color;
+      border: solid 1px $header-text-color;
       width: 180px;
       display: inline-block;
-      text-decoration: none;
       text-transform: uppercase;
       font-weight: 400;
       letter-spacing: 1px;
