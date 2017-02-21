@@ -1,22 +1,18 @@
-$footer-text-color: #dfdfdf;
-$footer-background-color: #000000;
-$footer-hover-text-color: #C5B358;
-$header-text-color: #dfdfdf;
-$header-background-color: #4c5560;
+@import './colour-scheme';
 
 .footer {
-  background-color: $footer-background-color;
-  color: $footer-text-color;
+  background-color: $frame__background__colour;
+  color: $frame__text__colour;
   padding: 20px 0;
 
   a {
-    color: $footer-text-color;
-    text-decoration: none;      
+    color: $frame__text__colour;
+    text-decoration: none;
   }
 
   .footer__logo {
     img {
-      width: 200px;  
+      width: 200px;
     }
   }
 
@@ -39,7 +35,7 @@ $header-background-color: #4c5560;
         }
 
         .fa-instagram {
-          color: $footer-text-color;
+          color: $frame__text__colour;
         }
 
         .fa-facebook-official {
@@ -48,28 +44,13 @@ $header-background-color: #4c5560;
 
         &:hover {
           .fa-twitter-square, .fa-facebook-official, .fa-instagram {
-            color: $footer-hover-text-color;
+            color: $frame__text__colour--hover;
           }
           a {
-            color: $footer-hover-text-color;
+            color: $frame__text__colour--hover;
           }
         }
       }
-    }
-  }
-
-  .footer__map {
-    background-color: $header-background-color;
-    .footer__map__items {
-      text-decoration: none;
-      text-transform: uppercase;
-      font-weight: 400;
-      letter-spacing: 1px;
-      font-size: 12px;
-    }
-
-    .footer__map__item {
-      padding: 10px;
     }
   }
 
@@ -85,7 +66,7 @@ $header-background-color: #4c5560;
   .footer {
     .footer__logo {
       display: none;
-    }  
+    }
 
     .footer__social {
       text-align: center;

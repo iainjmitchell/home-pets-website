@@ -1,15 +1,13 @@
-$communication-text-color: #dfdfdf;
-$communication-hover-text-color: #C5B358;
-$communication-background-color: #000000;
+@import './colour-scheme';
 
 .communication {
-  background-color: $communication-background-color;   
+  background-color: $frame__background__colour;
   padding: 5px 0px;
 
-  .communication__email {  
+  .communication__email {
     padding-top: 2px;
     a {
-      color: $communication-text-color; 
+      color: $frame__text__colour;
       text-decoration: none;
       padding-top: 2px;
 
@@ -17,16 +15,16 @@ $communication-background-color: #000000;
         margin: 0;
         margin-right: 5px;
         font-size: 1.2em;
-        color: $communication-text-color;
+        color: $frame__text__colour;
       }
     }
 
     &:hover{
       a {
-        color: $communication-hover-text-color;
+        color: $frame__text__colour--hover;
       }
       i {
-        color: $communication-hover-text-color;
+        color: $frame__text__colour--hover;
       }
     }
   }
@@ -52,7 +50,7 @@ $communication-background-color: #000000;
         }
 
         .fa-instagram {
-          color: $communication-text-color;
+          color: $frame__text__colour;
         }
 
         .fa-facebook-official {
@@ -61,7 +59,7 @@ $communication-background-color: #000000;
 
         &:hover {
           .fa-twitter-square, .fa-facebook-official, .fa-instagram {
-            color: $communication-hover-text-color;
+            color: $frame__text__colour--hover;
           }
         }
       }

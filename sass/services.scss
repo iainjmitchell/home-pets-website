@@ -1,2 +1,12 @@
 @import './components/site-layout.scss';
+@import './components/colour-scheme';
 
+.services__content {
+  padding: 10px;
+}
+
+.services__package {
+  background-color: $tertiary__background__color;
+  color: $tertiary__text__color;
+  padding: 10px;
+}

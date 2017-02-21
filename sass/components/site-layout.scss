@@ -1,12 +1,11 @@
 @import './header';
 @import './footer';
+@import './colour-scheme';
 @import url(http://allfont.net/allfont.css?fonts=montserrat-light);
 
-$page-text-color: #3b3c40;
-$page-sidebar-text-color: rgb(253,253,253);
-
 body {
-  color: $page-text-color;
+  color: $primary__text__colour;
+  background-color: $primary__background__colour;
   font-size: 14px;
   font-family: 'Montserrat light',sans-serif;
   letter-spacing: 0.5px;
@@ -29,7 +28,7 @@ h2 {
 }
 
 a {
-  color: $page-text-color;
+  color: $primary__text__colour;
 }
 
 .page {
@@ -46,11 +45,11 @@ a {
     padding: 100px 10px;
 
     .page__sidebar__component {
-      background-color: rgb(122, 136, 116);
+      background-color: $tertiary__background__color;
       border-radius: 10px;
-      color: $page-sidebar-text-color;
+      color: $tertiary__text__color;
       a {
-        color: $page-sidebar-text-color;
+        color: $tertiary__text__color;
       }
     }
   }

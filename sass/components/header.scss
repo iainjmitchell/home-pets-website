@@ -1,17 +1,15 @@
 @import '../font-awesome/font-awesome';
+@import './colour-scheme';
 @import './communication';
-
-$header-text-color: #dfdfdf;
-$header-background-color: rgb(84, 110, 122);
 
 .header {
   padding: 20px 10px;
-  background-color: $header-background-color;
+  background-color: $secondary__background__colour;
 
   .header__logo {
     display: inline-block;
     img {
-      width: 250px; 
+      width: 250px;
     }
     .header__logo__summary {
       margin: 0;
@@ -20,21 +18,21 @@ $header-background-color: rgb(84, 110, 122);
       margin-top: -16px;
       span {
         padding: 0px 7px;
-        background-color: $header-background-color;
-        color: $header-text-color;
+        background-color: $secondary__background__colour;
+        color: $secondary__text__colour;
       }
       text-align: center;
     }
   }
 
   .header__navigation {
-    .header__navigation__items {    
+    .header__navigation__items {
         padding-top: 14px;
-        
-    }  
+
+    }
 
     .header__navigation__item {
-      border: solid 1px $header-text-color;
+      border: solid 1px $secondary__text__colour;
       width: 180px;
       display: inline-block;
       text-transform: uppercase;
@@ -43,7 +41,7 @@ $header-background-color: rgb(84, 110, 122);
       font-size: 1em;
 
       a {
-        color: $header-text-color; 
+        color: $secondary__text__colour;
         text-decoration: none;
         width: 100%;
         height: 100%;
@@ -51,20 +49,20 @@ $header-background-color: rgb(84, 110, 122);
         padding: 10px 0px;
 
         &:hover {
-          color: $header-background-color;
+          color: $secondary__background__colour;
         }
       }
 
       &:hover {
-        background-color: $header-text-color;
-        color: $header-background-color;
+        background-color: $secondary__text__colour;
+        color: $secondary__background__colour;
       }
     }
 
     .header__navigation__item--first {
-      border-left: solid 1px $header-text-color;
+      border-left: solid 1px $secondary__text__colour;
     }
-  } 
+  }
 }
 
 //Medium/small device tweeks
@@ -76,7 +74,7 @@ $header-background-color: rgb(84, 110, 122);
 
     .header__navigation {
       padding-top: 10px;
-      .header__navigation__items {    
+      .header__navigation__items {
         padding: 0px;
       }
 
