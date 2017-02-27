@@ -50,7 +50,7 @@ gulp.task('copy-gel', ['copy-images'],() => {
   return gulp.src('./node_modules/gel-grid/gel-grid.css/gel-grid.min.css')
     .pipe(gulp.dest('./public/css'))
 })
- 
+
 gulp.task('w3c-validation', ['build-pages'], () =>  {
   return gulp.src('public/*.html')
     .pipe(w3cjs())
@@ -65,9 +65,14 @@ gulp.task('build-pages', ['sass'], () => {
     .pipe(gulp.dest('./public'))
 })
 
-gulp.task('copy-fonts', ['clean'], () => {
+gulp.task('copy-fonts', ['copy-supporting-files'], () => {
   return gulp.src(['fonts/**/*'], { base: 'fonts' })
     .pipe(gulp.dest('public/fonts'))
+})
+
+gulp.task('copy-supporting-files', ['clean'], () => {
+  return gulp.src(['supporting-files/**/*'], { base: 'supporting-files' })
+    .pipe(gulp.dest('public'))
 })
 
 gulp.task('copy-images', ['copy-fonts'], () => {

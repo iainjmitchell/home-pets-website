@@ -4,7 +4,7 @@
   <title>{{index.title}}</title>
   <meta name="description" content="{{index.description}}"/>
   <link rel="canonical" href="{{& rootUrl}}"/>
-  <!-- <social> --> 
+  <!-- <social> -->
   <meta property="og:locale" content="en_UK" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="{{index.socialTitle}}" />
@@ -16,9 +16,30 @@
   <meta name="twitter:title" content="{{index.socialTitle}}" />
   <meta name="twitter:site" content="@{{twitterAccount}}" />
   <meta name="twitter:creator" content="@{{twitterAccount}}" />
-  <!-- </social> --> 
+  <!-- </social> -->
   <link rel="stylesheet" type="text/css" href="css/index.css">
   <link rel="stylesheet" type="text/css" href="css/gel-grid.min.css">
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      "@id":"#organisation",
+      "url": "{{& rootUrl}}",
+      "name": "{{& siteName}}",
+      "sameAs": ["https://twitter.com/{{& twitterAccount}}"],
+      "logo": "{{& rootUrl}}logo2.png",
+      "telephone": "{{& phoneNumber}}"
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "@id":"#website",
+      "url": "{{& rootUrl}}",
+      "name": "{{& siteName}}"
+    }
+  </script>
 </head>
 <body>
   <div class="site">
@@ -36,7 +57,7 @@
                 <p>
                   Cats can find catterys stressful, and even the journey in the car to the cattery can be very stressful for them. Finding someone to look after other animals such as rabbits, chickens and guineapigs can be very difficult.
                 </p>
-                <p>  
+                <p>
                   <b>Purrs &amp; Paws</b> provides a solution to this problem. We will come and visit your pets at home while you are away, giving them the care and attention they need.
                 </p>
                 <p>
