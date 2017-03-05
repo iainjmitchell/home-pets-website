@@ -4,8 +4,11 @@
   background-color: $frame__background__colour;
   padding: 5px 0px;
 
-  .communication__email {
+  .communication__email, .communication__phone {
     padding-top: 2px;
+    display: inline;
+    padding-right: 10px;
+
     a {
       color: $frame__text__colour;
       text-decoration: none;

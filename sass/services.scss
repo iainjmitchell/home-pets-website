@@ -1,6 +1,14 @@
 @import './components/site-layout.scss';
 @import './components/colour-scheme';
 
+h1, h3 {
+  margin: 0;
+}
+
+.services__description {
+  padding: 40px;
+}
+
 .services__content {
   padding: 10px;
 }
@@ -8,5 +16,38 @@
 .services__package {
   background-color: $tertiary__background__color;
   color: $tertiary__text__color;
-  padding: 10px;
+  padding: 20px;
+
+
+  .services__package__name {
+    text-align: center;
+
+    .services__package__name__text {
+      border: 2px solid $tertiary__text__color;
+      padding: 8px;
+      display: inline;
+
+      h3 {
+        display: inline;
+      }
+    }
+  }
+}
+
+.steel {
+  background-color: $secondary__background__colour;
+  color: $secondary__text__colour;
+
+  .services__package__name .services__package__name__text {
+    border-color: $secondary__text__colour;
+  }
+}
+
+.gold {
+  background-color: rgb(200, 200, 100);
+  color: $primary__text__colour;
+
+  .services__package__name .services__package__name__text {
+    border-color: $primary__text__colour;
+  }
 }
