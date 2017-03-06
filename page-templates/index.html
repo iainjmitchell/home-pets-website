@@ -22,20 +22,39 @@
   <script type="application/ld+json">
     {
       "@context": "http://schema.org",
-      "@type": "Organization",
-      "@id":"#organisation",
+      "@type": "ImageObject",
+      "@id": "http://purrsandpawsuk.com/#logo",
+      "url": "{{& rootUrl}}logo2.png"
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "http://purrsandpawsuk.com/#business",
       "url": "{{& rootUrl}}",
       "name": "{{& siteName}}",
       "sameAs": ["https://twitter.com/{{& twitterAccount}}"],
-      "logo": "{{& rootUrl}}logo2.png",
-      "telephone": "{{& phoneNumber}}"
+      "logo": {
+        "@id": "http://purrsandpawsuk.com/#logo"
+      },
+      "image": {
+        "@id": "http://purrsandpawsuk.com/#logo"
+      },
+      "telephone": "{{& phoneNumber}}",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "England",
+        "addressLocality": "Sale",
+        "addressRegion": "Greater Manchester"
+      },
+      "priceRange": "££"
     }
   </script>
   <script type="application/ld+json">
     {
       "@context": "http://schema.org",
       "@type": "WebSite",
-      "@id":"#website",
       "url": "{{& rootUrl}}",
       "name": "{{& siteName}}"
     }

@@ -8,22 +8,22 @@
   "phoneNumber" : "+447933822358",
   "index" : {
     "title" : "Purrs & Paws",
-    "description" : "Pet sitting services in ​Sale, Timperley, Altrincham, Hale Barns & surrounding areas.",
+    "description" : "Pet sitting services in ​Sale, Timperley, Altrincham, Hale Barns and surrounding areas.",
     "socialTitle" : "Pet sitting | Sale | Timperley | Altrincham"
   },
   "about" : {
-    "title" : "About - Purrs & Paws",
-    "description" : "About Purrs and Paws, pet sitting services in ​Sale, Timperley, Altrincham, Hale Barns & surrounding areas.",
-    "socialTitle" : "About Purrs and Paws"
+    "title" : "About: Purrs & Paws",
+    "description" : "About Purrs & Paws.",
+    "socialTitle" : "About Purrs & Paws"
   },
   "services" : {
-    "title" : "Services - Purrs & Paws",
-    "description" : "Services & Prices of Purrs and Paws, pet sitting services in ​Sale, Timperley, Altrincham, Hale Barns & surrounding areas.",
-    "socialTitle" : "Services & Prices of Purrs and Paws"
+    "title" : "Services: Purrs & Paws",
+    "description" : "Pet sitting services & prices that Purrs & Paws provides.",
+    "socialTitle" : "Services & Prices of Purrs & Paws"
   },
   "contact" : {
-    "title" : "Contact - Purrs & Paws",
-    "description" : "Contact Prices of Purrs and Paws, pet sitting services in ​Sale, Timperley, Altrincham, Hale Barns & surrounding areas.",
+    "title" : "Contact: Purrs & Paws",
+    "description" : "Contact Purrs & Paws to discuss your pet sitting requirements.",
     "socialTitle" : "Contact Purrs and Paws"
   }
 }
