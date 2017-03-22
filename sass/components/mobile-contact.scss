@@ -1,0 +1,32 @@
+@import './colour-scheme';
+
+.mobile__contact {
+  background-color: $frame__background__colour;
+  display: none;
+  padding: 10px;
+  margin-top: 5px;
+
+  section {
+    text-align: center;
+    padding: 10px;
+  }
+  a {
+    color: $frame__text__colour;
+    text-decoration: none;
+    padding-top: 2px;
+
+    i {
+      margin: 0;
+      margin-right: 5px;
+      font-size: 1.2em;
+      color: $frame__text__colour;
+    }
+  }
+}
+
+//Medium/small device tweeks
+@media(max-width: 900px){
+  .mobile__contact {
+    display: block;
+  }
+}
