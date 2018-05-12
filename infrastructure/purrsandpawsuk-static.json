@@ -79,6 +79,7 @@
             "TargetOriginId": "S3purrsandpawsOrigin",
             "ViewerProtocolPolicy": "allow-all"
           },
+          "DefaultRootObject": "index",
           "Enabled": true,
           "Origins": [
             {
