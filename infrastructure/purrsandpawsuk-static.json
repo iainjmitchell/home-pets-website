@@ -10,8 +10,11 @@
             "Name": "purrsandpawsuk.com.",
             "Type": "A",
             "AliasTarget": {
-              "HostedZoneId": "Z3GKZC51ZF0DB4",
-              "DNSName": "s3-website.eu-west-2.amazonaws.com"
+              "HostedZoneId": "Z2FDTNDATAQYW2",
+              "DNSName": {"Fn::GetAtt": [
+                "distribution",
+                "DomainName"
+              ]}
             }
           }
         ]
@@ -26,8 +29,11 @@
             "Name": "www.purrsandpawsuk.com.",
             "Type": "A",
             "AliasTarget": {
-              "HostedZoneId": "Z3GKZC51ZF0DB4",
-              "DNSName": "s3-website.eu-west-2.amazonaws.com"
+              "HostedZoneId": "Z2FDTNDATAQYW2",
+              "DNSName": {"Fn::GetAtt": [
+                "distribution",
+                "DomainName"
+              ]}
             }
           }
         ]
@@ -41,13 +47,61 @@
           {
             "Name": "purrsandpawsuk.com.",
             "Type": "MX",
-            "TTL" : "300",
-            "ResourceRecords" : ["10 mx.zoho.com.", "20 mx2.zoho.com.", "50 mx3.zoho.com."]
+            "TTL": "300",
+            "ResourceRecords": [
+              "10 mx.zoho.com.",
+              "20 mx2.zoho.com.",
+              "50 mx3.zoho.com."
+            ]
           }
         ]
       }
     },
-    "s3purrsandpawsukcom": {  
+    "distribution": {
+      "Type": "AWS::CloudFront::Distribution",
+      "Properties": {
+        "DistributionConfig": {      
+          "Aliases": [
+            "purrsandpawsuk.com",
+            "www.purrsandpawsuk.com"
+          ],                  
+          "DefaultCacheBehavior": {
+            "AllowedMethods": [
+              "GET",
+              "HEAD"
+            ],
+            "ForwardedValues": {
+              "QueryString": "false",
+              "Cookies": {
+                "Forward": "none"
+              }
+            },
+            "TargetOriginId": "S3purrsandpawsOrigin",
+            "ViewerProtocolPolicy": "allow-all"
+          },
+          "Enabled": true,
+          "Origins": [
+            {
+              "DomainName": {
+                "Fn::GetAtt": [
+                    "s3purrsandpawsukcom",
+                    "DomainName"
+                ]
+              },
+              "Id": "S3purrsandpawsOrigin",
+              "S3OriginConfig": {
+                "OriginAccessIdentity": ""
+              }
+            }
+          ],
+          "PriceClass": "PriceClass_100",
+          "ViewerCertificate": {
+            "CloudFrontDefaultCertificate": "true"
+          }
+        }
+      }
+    },
+    "s3purrsandpawsukcom": {
       "Type": "AWS::S3::Bucket",
       "Properties": {
         "BucketName": "purrsandpawsuk.com",
@@ -61,7 +115,7 @@
         }
       }
     },
-    "s3wwwpurrsandpawsukcom": { 
+    "s3wwwpurrsandpawsukcom": {
       "Type": "AWS::S3::Bucket",
       "Properties": {
         "BucketName": "www.purrsandpawsuk.com",
@@ -105,27 +159,41 @@
         }
       }
     },
-    "purrsandpawsukdeploy" : {
-      "Type" : "AWS::IAM::User",
-        "Properties" : {
-          "Policies" : [ {
-             "PolicyName" : "accessToDeployWebsite",
-             "PolicyDocument" : {
-                "Version": "2012-10-17",
-                "Statement" : [ {
-                   "Effect" : "Allow",
-                   "Action" : ["s3:PutObject","s3:PutObjectAcl", "s3:DeleteObject"],
-                   "Resource" : [ "arn:aws:s3:::purrsandpawsuk.com/*"]
+    "purrsandpawsukdeploy": {
+      "Type": "AWS::IAM::User",
+      "Properties": {
+        "Policies": [
+          {
+            "PolicyName": "accessToDeployWebsite",
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "s3:PutObject",
+                    "s3:PutObjectAcl",
+                    "s3:DeleteObject"
+                  ],
+                  "Resource": [
+                    "arn:aws:s3:::purrsandpawsuk.com/*"
+                  ]
                 },
                 {
-                   "Effect" : "Allow",
-                   "Action" : ["s3:ListBucket"],
-                   "Resource" : [ "arn:aws:s3:::purrsandpawsuk.com"]
-                }]
-              }
-          }]
-       }
-    } 
+                  "Effect": "Allow",
+                  "Action": [
+                    "s3:ListBucket"
+                  ],
+                  "Resource": [
+                    "arn:aws:s3:::purrsandpawsuk.com"
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
   },
   "Description": "purrsandpawsuk.com"
 }
