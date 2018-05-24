@@ -1,0 +1,27 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Resources": {
+        "Certificate" : {
+            "Type": "AWS::CertificateManager::Certificate",
+            "Properties": {
+              "DomainName": "purrsandpawsuk.com",
+              "DomainValidationOptions": [{
+                "DomainName": "purrsandpawsuk.com",
+                "ValidationDomain": "purrsandpawsuk.com"
+              }],
+              "SubjectAlternativeNames": [
+                "www.purrsandpawsuk.com"
+              ]
+            }            
+          }
+    },
+    "Outputs" : {
+        "CertificateARN" : {
+          "Description" : "ARN of certificate to use in cloudfront distribution",
+          "Value" : {"Ref": "Certificate"},
+          "Export" : {
+            "Name" : "PurrsAndPawsCerfificateArn"
+          }
+        }
+    }
+}
