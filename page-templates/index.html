@@ -23,23 +23,23 @@
     {
       "@context": "http://schema.org",
       "@type": "ImageObject",
-      "@id": "http://purrsandpawsuk.com/#logo",
-      "url": "{{& rootUrl}}logo2.png"
+      "@id": "{{& rootUrl}}#logo",
+      "url": "{{& rootUrl}}images/pawsandpurrs-logo.png"
     }
   </script>
   <script type="application/ld+json">
     {
       "@context": "http://schema.org",
       "@type": "LocalBusiness",
-      "@id": "http://purrsandpawsuk.com/#business",
+      "@id": "{{& rootUrl}}#business",
       "url": "{{& rootUrl}}",
       "name": "{{& siteName}}",
       "sameAs": ["https://twitter.com/{{& twitterAccount}}"],
       "logo": {
-        "@id": "http://purrsandpawsuk.com/#logo"
+        "@id": "{{& rootUrl}}#logo"
       },
       "image": {
-        "@id": "http://purrsandpawsuk.com/#logo"
+        "@id": "{{& rootUrl}}#logo"
       },
       "telephone": "{{& phoneNumber}}",
       "address": {

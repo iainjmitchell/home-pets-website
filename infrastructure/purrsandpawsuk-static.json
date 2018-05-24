@@ -97,7 +97,8 @@
           ],
           "PriceClass": "PriceClass_100",
           "ViewerCertificate": {
-            "CloudFrontDefaultCertificate": "true"
+            "AcmCertificateArn": "arn:aws:acm:us-east-1:256798170560:certificate/d1992eda-9731-43e0-9326-484733edc933",
+            "SslSupportMethod": "sni-only"
           }
         }
       }
