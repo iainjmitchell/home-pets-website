@@ -70,6 +70,7 @@
               "GET",
               "HEAD"
             ],
+            "DefaultTTL": 1800,
             "ForwardedValues": {
               "QueryString": "false",
               "Cookies": {
